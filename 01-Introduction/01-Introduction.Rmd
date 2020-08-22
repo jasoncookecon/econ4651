@@ -13,6 +13,14 @@ output:
       countIncrementalSlides: false
       beforeInit: "macros.js"
 ---
+class: white-slide
+
+Instead of waiting in awkward silence for everyone to join, enjoy this live panda footage
+
+<iframe width="914" height="514" src="https://www.youtube.com/embed/Gm3bQVANtVo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+---
 class: inverse, middle
 
 ```{r Setup, include = F}
@@ -40,11 +48,12 @@ opts_chunk$set(
 # Prologue
 
 <!-- install.packages(c("pagedown", "xaringan")) -->
-<!-- pagedown::chrome_print("C:/Users/Jason Cook/Box Sync/Teaching/Jason Cook/QAMO_UG_Intro_Metrics/Lectures/01-Introduction/01-Introduction.html") -->
+<!-- pagedown::chrome_print("C:/Users/Jason/Box/Teaching/Jason Cook/QAMO_UG_Intro_Metrics/Lectures/01-Introduction/01-Introduction.html") -->
 
 ---
 # Who am I? 
 
+.pull-left[
 [**Jason Cook**](https://sites.google.com/site/jasonblainecook/)
 
 - Applied microeconomist and econometrician
@@ -54,15 +63,44 @@ opts_chunk$set(
   - Charter schools
   - Racial segregation
   - Food Assistance: SNAP/WIC
+]
+.pull-right[
+```{r out.width = '90%', echo = F}
+knitr::include_graphics("https://sites.google.com/site/jasonblainecook/_/rsrc/1579376979604/home/Jason%20Cook%20ABC_9457_edit.png?height=320&width=258")
+```
 
---
+]
 
-Where can you find me?
+---
 
+# Where can you find me?
+
+.pull-left[
 - **Office hours:** T/Th 3:30-4:30pm or by appointment. Schedule with [__Calendly__](https://calendly.com/jascook/20min)
-  + **Zoom Meeting ID:** 331 921 1844
-  + **Password:** 4651
+
 - **Email:** .hi[Don't email] __(use Slack Instead!)__
+]
+.pull-right[
+```{r out.width = '90%', echo = F}
+knitr::include_graphics("https://sites.google.com/site/jasonblainecook/_/rsrc/1579376979604/home/Jason%20Cook%20ABC_9457_edit.png?height=320&width=258")
+```
+
+]
+---
+# Teaching Assistant
+.pull-left[
+- **Blake Peterman**
+- **Email:** .url[u0965622@utah.edu]
+
+- **Office Hours:** T/F 4pm-5pm
+    - **Zoom ID:** 988 6826 2146
+    - **Password:** 4651
+]
+.pull-right[
+```{r out.width = '90%', echo = F}
+knitr::include_graphics("https://ca.slack-edge.com/T015CRGBZL3-U019Y2PRDDE-ca2179b3f511-512")
+```
+]
 
 ---
 class: inverse, middle
@@ -71,26 +109,40 @@ class: inverse, middle
 
 ---
 layout: true
+
 # Syllabus
+
+--
+
+<iframe width="360" height="515" src="Snoop_Dogg.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 ## Grading
+
+```{r out.width = '40%', echo = F}
+knitr::include_graphics("https://media.giphy.com/media/iH1rdIKYvNhOu5Z8RY/giphy.gif")
+```
+---
+
+## Grading 
+
 - Attendance .hi[(1 pt per class up to 25 pts - 5%)]
   - Watch entire lecture, either by Zoom or Canvas, or combo
   - Lab days, submit Stata do-file for credit
   - Must be completed before Sunday at midnight following the lecture
 
+--
+
+- 6 Problem Sets .hi[(25 pts each - 25%)]
+  + Mix of theory and empirical tasks
+  + Optional groups of up to 4 .hi[(graded as a group)]
+  + Will drop the lowest-scored problem set
+  
 ---
 
 ## Grading continued...
 
-- 6 Problem Sets .hi[(25 pts each - 25%)]
-  + Mix of theory and empirical tasks
-  + Optional groups of up to 4 .hi[(turn in own responses)]
-  + Will drop the lowest-scored problem set
-
---
 - 4 Group Assignments .hi[(25 pts each - 20%)]
   + Assigned a group of 5<sup>†</sup>
   + Open-ended empirical assignments
@@ -99,10 +151,24 @@ layout: true
 .footnote[
 [†]: Contact TA if group member isn't helping and we will contact entire group and may dock points to that member
 ]
-
 --
-- Midterm .hi[(100 pts - 20%)]
-- Comprehensive Final .hi[(150 pts - 30%)]
+
+- Midterm - ProctorU .hi[(100 pts - 20%)]
+- Comprehensive Final - ProctorU .hi[(150 pts - 30%)]
+--
+
+- Scores curved within the class
+  - This is a challenging course and so curve will most likely be used to move student scores .green[**upward**] to achieve a reasonable class distribution
+
+---
+
+## Contesting Grades
+
+- You have .hi[two weeks] from when returned to contest grades on any assignment
+- First, consult with TA to try to come to resolution
+- If that fails, then I will regrade
+- You must accept my scoring as final, even if it is lower than the original grade
+  - In the past, I've been a tougher grader than my TA so factor that in
 
 ---
 layout: true
@@ -115,13 +181,16 @@ class: inverse, middle
 
 ---
 
-- I will utilize Slack for this course rather than email (response guaranteed)
+- I will utilize Slack for this course rather than email .green[**(response guaranteed)**]
 
-- Please do not email me (you may not get a response)
+- Please do not email me .red[**(you may not get a response)**]
 
 - Create a Slack Account and join our Workspace [Econ 4651: Fall-2020](https://econ4651-fall-2020.slack.com/join/shared_invite/zt-f657a2hw-bySaT~nbE37819BuYvIxEA#/)
 
 - [Getting Started with Slack](https://slack.com/help/articles/218080037-Getting-started-for-new-members)
+
+- Be sure to add .pink[profile pictures] as well. It helps to feel connected in these remote semesters.
+
 ---
 
 ```{r out.width = '100%', echo = F}
@@ -133,7 +202,21 @@ knitr::include_graphics("slack_intro.png")
 
 ---
 ## In Class
-- We will periodically use Slack in class for polling and other activities, so have it ready
+- We will periodically use Slack in class for impromptu polling and group activities, so have it ready
+
+  - These will appear in .mono[\#in-class] channel
+
+- You can also post questions about lecture material in .mono[\#lecture]
+
+  - These will be answered by myself, the TA, and your fellow peers .pink[(not necessarily during class time)]
+
+  - For questions you want an immediate answer to, use Zoom features (described shortly)
+
+--
+
+Let's practice...
+
+Open up Slack, see you there
 
 ---
 ## Ettiquete
@@ -144,9 +227,9 @@ knitr::include_graphics("slack_intro.png")
 
 - Slack is .hi[judgment-free zone], no such thing as "stupid questions"
 
-- TAs and I will monitor Slack to answer questions as well
+- TA and I will monitor Slack to answer questions as well
 
-- To ask a specific question to me or the TAs, be sure to tag us in the post using @
+- To ask a specific question to me or Blake, be sure to tag us in the post using @
 
 - Please do answer other students questions and contribute to discussion
 
@@ -155,9 +238,13 @@ knitr::include_graphics("slack_intro.png")
 ---
 
 ## Bonus
-To help facilitate activity on Slack. At the end of the semester, I will subjectively award up to .hi[25 points] (equivalent to one full problem-set) based on each student's activity on Slack
+To help facilitate activity on Slack. At the end of the semester, I will subjectively award up to .hi[25 points] (equivalent to one full problem-set) to each student based on their activity on Slack
 
 Activity includes both asking and answering questions, though I'll put more weight on answering
+
+```{r out.width = '50%', echo = F}
+knitr::include_graphics("https://media.giphy.com/media/26ybxqF6r4w1pjjws/giphy.gif")
+```
 
 ---
 
@@ -171,7 +258,7 @@ Activity includes both asking and answering questions, though I'll put more weig
 - \#stata
 
 ## Direct Messages:
-- Send direct messages jointly to myself .hi[and both TAs] for anything personal questions or concerns
+- Send direct messages jointly to myself .hi[and the TA] for any personal questions or concerns
   + TA will usually respond, but I'll step in as needed
 
 ---
@@ -185,10 +272,25 @@ class: inverse, middle
 ---
 
 ## Ettiquette
-- keep video on
+.pull-left[
+- keep video on (if possible)
 - raise hand 
-- use chat feature (TAs will be monitoring chat)
+- use chat feature
 - mic off unless called on
+
+## Group Questions
+- will regularly split into small groups to discuss content
+- Let's practice, just introduce yourselves to your other group members for a few minutes and I'll bounce around
+]
+
+.pull-right[
+```{r out.width = '100%', echo = F}
+knitr::include_graphics("https://media.giphy.com/media/JOGDMviQHZvC2QGWeg/giphy.gif")
+```
+```{r out.width = '100%', echo = F}
+knitr::include_graphics("https://media.giphy.com/media/J4nBhoXcAOOXwNC5D7/giphy.gif")
+```
+]
 
 
 ---
@@ -202,11 +304,20 @@ class: inverse, middle
 
 ---
 
-- I'll use poll everywhere for in-class polling
+- I'll use poll everywhere for most in-class polling
 
-- These polls are to guage understanding and will not be for points
+- These polls are to gauge understanding and will not be for points
 
 - No need to enroll in Poll Everywhere, just click links in Slack channel
+  - But enrolling does make it a bit faster for you
+
+--
+
+- Let's try it out
+
+---
+
+<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/EILGeooi0BlfDZPHCrTdp?controls=none&short_poll=true" width="800" height="600" frameBorder="0"></iframe>
 
 ---
 layout: false
@@ -506,7 +617,7 @@ knitr::include_graphics("01-Introduction_files/Stata_help.gif")
 - __Logical Conditions (OR):__ `gen nonwhite=race==2 | race==3`
   + Create a variable called `nonwhite` that equals 1 if race equals 2 _OR_ (`|`) 3, otherwise assign `nonwhite` to be 0
   
-- __Logical Conditions (AND):__ `gen big\_ne=region==1 & smsa==1`
+- __Logical Conditions (AND):__ `gen big_ne=region==1 & smsa==1`
   + Create a variable called `big_ne` that equals 1 if `region` equals 1 _AND_ (`&`) `smsa` equals 1, otherwise assign `big_ne` to be zero
 
 
