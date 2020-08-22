@@ -1,0 +1,926 @@
+---
+title: "Lecture 1 - Introuduction"
+author: "Jason Cook"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+
+output:
+  xaringan::moon_reader:
+    css: ['default', 'metropolis', 'metropolis-fonts', 'my-css.css']
+    # self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "macros.js"
+---
+class: inverse, middle
+```{css, echo = F, eval = T}
+@media
+print {
+ .has-continuation {
+   display: block !important;
+ }
+}
+```
+
+
+
+```{r Setup, include = F}
+options(htmltools.dir.version = FALSE)
+library(pacman)
+p_load(smovie, AER, scales, leaflet, ggplot2, ggthemes, viridis, dplyr, magrittr, knitr, tidyr, gganimate)
+# Define pink color
+red_pink <- "#e64173"
+# Notes directory
+dir_slides <- "C:/Users/Jason Cook/Box Sync/Teaching/Jason Cook/QAMO_UG_Intro_Metrics/Slides/"
+# Knitr options
+opts_chunk$set(
+  comment = "#>",
+  fig.align = "center",
+  fig.height = 7,
+  fig.width = 10.5,
+  # dpi = 300,
+  # cache = T,
+  warning = F,
+  message = F
+)
+```
+
+# Course Content
+---
+
+# Office Hours
+- ## Jason Cook
+	+ **Contact:** __jbc50@pitt.edu__
+	+ __Office:__ 4117 Posvar
+	+ **Office hours:** Thursdays, 12:30-2:30pm and as needed
+- Chengying Luo
+	+ **Contact:** __chengying.luo@pitt.edu__
+	+ __Office hours:__ Tuesdays 9:30am-Noon and 1-3:30pm, Location: TBD		
+- **Note:** For nearly any issue in the class, email Chengying and CC me. She will handle most of the day-to-day logistics of the course. I'll get involved where needed.
+
+- Let me know if you cannot make any of these office hours
+
+---
+# Syllabus Review
+## Overview of Syllabus
+- Setup Arkaive and Poll Everywhere	
+	+ Download apps and register 
+	+ [Poll Everywhere](http://www.polleverywhere.com/register)
+		- Search for this class using my email address __jbc50@pitt.edu__
+- Wait on Arkaive (still waiting on OK from university data security team
+
+---
+
+# Why?
+
+## Motivation
+
+Let's start with a few __basic, general questions:__
+
+--
+
+1. What is the goal of econometrics?
+
+2. Why do economists (or other people) study or use econometrics?
+
+--
+
+__One simple answer:__ Learn about the world using data.
+
+--
+
+
+- _Learn about the world_ = Raise, answer, and challenge questions, theories, assumptions.
+
+- _data_ = Plural of datum.
+
+---
+
+# What is Econometrics?
+- A large set of statistical techniques that allow us to examine __empirical relationships__ between variables 
+- **Empirical**: Based on data 
+--
+
+- **Relationship**:
+ + *Causal*: Assessing the impact of changing the value of one variable, $X$, on an outcome, $Y$
+ + *Association*: Assess how two variables _move together_ in the data. Useful for predictions
+- __Key Idea:__ Is a relationship causal or an association?
+
+
+```{r out.width = '50%', echo = F}
+knitr::include_graphics("correlation.png")
+```
+
+---
+
+# Not everything is causal
+
+```{R, spurious, echo = F, dev = "svg"}
+tmp <- data.frame(
+  year = 1999:2009,
+  count = c(
+    9, 8, 11, 12, 11, 13, 12, 9, 9, 7, 9,
+    6, 5, 5, 10, 8, 14, 10, 4, 8, 5, 6
+  ),
+  type = rep(c("letters", "deaths"), each = 11)
+)
+ggplot(data = tmp, aes(x = year, y = count, color = type)) +
+  geom_path() +
+  geom_point(size = 4) +
+  xlab("Year") +
+  ylab("Count") +
+  scale_color_manual(
+    "",
+    labels = c("Deaths from spiders", "Letters in the winning spelling bee word"),
+    values = c(red_pink, "darkslategray")
+  ) +
+  theme_pander(base_size = 17) +
+  theme(legend.position = "bottom")
+```
+
+---
+
+# Econometrics
+
+An applied econometrician<sup>†</sup> needs a solid grasp on (at least) three areas:
+
+1. The __theory__ underlying econometrics (assumptions, results, strengths, weaknesses).
+
+1. How to __apply theoretical methods__ to actual data.
+
+1. Efficient methods for __working with data__—cleaning, aggregating, joining, visualizing.
+
+.footnote[
+[†]: _Applied econometrician_ .mono[=] Practitioner of econometrics, _e.g._, analyst, consultant, data scientist.
+]
+
+--
+
+__This course__ aims to deepen your knowledge in each of these three areas.
+
+--
+
+- 1: As before.
+- 2–3: __.mono[Stata]__
+
+---
+class: inverse, middle
+background-image: url(https://ritme.com/stock/img/product/162/banniere-stata-16.png)
+background-size: contain
+background-position: middle
+
+---
+
+# Stata
+- There are several statistical packages useful for econometrics, we will use .mono[Stata]
+- Concepts learned easily translate to other packages (e.g., R, SAS, SPSS)
+- __Useful Resources:__
+ + [Stata FAQ](www.stata.com/support/faqs)
+ + [The Stata listserv](www.statalist.org)
+ + [UCLA's resources for learning Stata](https://stats.idre.ucla.edu/stata/modules/)
+- __In Stata:__ CPS data
+ + Navigating Stata
+ + Help files
+ + Do-files
+
+
+---
+# .mono[Stata] - Do File
+
+- Everything you __do__ in .momo[Stata] should be recorded in a __do file__
+- The do file should:
+  + Begin by opening raw data (source data unedited by user)
+  + Perform data cleaning
+  + Run analyses and save output
+- \*__Never__ save over raw data\*
+- Comment by starting lines with .mono[*] to organize code
+
+```{r out.width = '60%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_open.gif")
+```
+.center[__Opening a do file__]
+
+
+---
+
+# .mono[Stata] - .mono[help]
+
+- Use the .mono[help] feature liberally
+  + Explains what a command does
+  + At the end gives examples of using the syntax
+  + Sometimes even has video explanations
+
+```{r out.width = '85%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_help.gif")
+```
+.center[__Looking up help file for .mono[summarize] command__]
+
+---
+# .mono[Stata] - Basic Operations
+- __Generate new variables:__ .mono[gen age2=age*age]
+  + Create a variable (.mono[gen]) called .mono[age2] and assign (=) to it the value of .mono[age] times .mono[age] (aka $\text{age}^2$)
+  
+- __Natural Log:__ .mono[gen ln_weekly_earn=ln(weekly_earn)]
+
+- __Binary Variable:__ .mono[gen union=union_status==1]<sup>*</sup>
+  + Create a variable called union that equals 1 if .mono[union_status] equals 1, otherwise assign union_status to be 0
+
+.footnote[[*] .mono[=] "assign"; .mono[==] "compare"]
+
+---
+# .mono[Stata] - Basic Operations
+- __Logical Conditions (OR):__ `gen nonwhite=race==2 | race==3`
+  + Create a variable called `nonwhite` that equals 1 if race equals 2 _OR_ (`|`) 3, otherwise assign `nonwhite` to be 0
+  
+- __Logical Conditions (AND):__ `gen big\_ne=region==1 & smsa==1`
+  + Create a variable called `big_ne` that equals 1 if `region` equals 1 _AND_ (`&`) `smsa` equals 1, otherwise assign `big_ne` to be zero
+
+
+---
+
+# .mono[Stata] - Summary Statistics
+## `summarize, detail`
+.pull-left[
+- Provides summary statistics of given variable(s), (here, `age`)
+- `, detail` option that tells Stata to provide additional info like quantiles
+]
+.pull-right[
+| Age | Education
+------------- | -------- | -----
+Mean| 37.97| 13.16
+Median  |  36|12
+Variance |  124.4|7.81
+]
+
+```{r out.width = '80%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_sum.gif")
+```
+  
+---
+# .mono[Stata] - Summary Stats by Categories
+## `bysort race: sum weekly_earn`
+.pull-left[- Runs `sum` command separately for each value of `race` 
+- Here `race==1` is white, `race==2` is black, and `race==3` is Hispanic]
+.pull-right[Race  | Mean Earnings
+------------- | ---------
+White| 506.5
+Black  |  383.1
+Hispanic |  368.6]
+```{r out.width = '75%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_bysort.gif")
+```
+  
+---
+
+# .mono[Stata] - .mono[if] Statements
+- Add `if` conditions after command to run on subset of data
+
+```{r out.width = '100%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_if.gif")
+```
+  
+---
+
+# .mono[Stata] - .mono[tabulate] Command
+- Provides counts of observations in each unique value of variable
+
+```{r out.width = '100%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_tab.gif")
+```
+  
+---
+
+# .mono[Stata] - Figures
+- Easiest way to make figures in Stata is using GUI in menu under `Graphics` $\rightarrow$ `Twoway Graph`
+
+```{r out.width = '100%', echo = F}
+knitr::include_graphics("Course_Outline_files/Stata_fig.gif")
+```
+---
+class: inverse, middle
+
+# Statistics and Linear Algebra for Econometrics
+---
+
+# Stats and LinAlg
+
+- Econometrics requires a solid foundation of statistics and linear algebra
+- First part of this course lays groundwork for being able to answer causal questions
+  + Potentially dry material, but is incredibly useful for later interesting material
+- We will cover foundational statistics now and will save LinAlg for later in course
+
+---
+
+Want to understand cause and effect of different practices or policies on _populations_ of people
+--
+
+- Often not feasible to study entire populations
+  + Statistics lets us study _smaller samples_ of people to learn about _full populations_ (aka __"inference"__)
+--
+
+- People who opt into and out of certain practice or treatment are different
+  + Comparisons are not "apples to apples"
+--
+
+- To do this we need to quantify the uncertainty related to sample averages, groups of averages, and differences among them
+	+ Namely, differences in averages between treatment and control groups
+	
+---
+# Motivation -- Inference
+Two types of randomness at work:
+1. __Random Sampling__ - Construction of study sample. 
+    + Important so that sample is representative of population (inference)
+1. __Random Assignment__ - How treatment is allocated among those sampled
+    + Important so that comparisons are "apples to apples"
+--
+
+- Next we will discuss characterizing the central tendency and variation of a distribution
+--
+	
+  + _Central tendency_ is important because we are interested in comparing means of treatment and control groups
+--
+
+  + _Variation_ is important because we want to assess the likelihood that our findings are due to chance
+- We particularly care about the __sampling distribution__
+---
+
+# Characteristics of a Distribution
+
+## Measuring Central Tendency
+- Consider a single sample average, e.g., average height of a sample of ![:scale 4%](BlockU.png) students
+  + __Sample Mean__: $Avg_n(Y_i) = \frac{1}{n}\sum_{i=1}^n Y_i$
+--
+
+- Want to know the corresponding __population mean__, e.g., average height of all ![:scale 4%](BlockU.png) students. This is called an __Expectation__ or __Expected Value__, $E[Y_i]$
+
+- Can write Expectations as weighted averages of all possible $Y_i$ values
+  + Weights given by probability that values appear in the population 
+	
+---
+
+# Measuring Central Tendency
+## Definition - Expected Value
+> Suppose random variable $Y$ has $k$ possible values, where $y_i$ is the $i_{\text{th}}$ value and $p_i$ is the probability that $Y$ takes on $y_i$, then $$E[Y]=y_1p_1 + y_2p_2 + \cdots + y_kp_k = \sum_{i=1}^k y_ip_i$$
+--
+
++ __Example:__ Suppose I flip a coin and pay you $100 if heads or $0 if tails, then 
+	
++ $E[Y]=\frac{1}{2}*100 + \frac{1}{2}*0=50$
++ Now suppose we play the game 10 times, and win 4 heads, then $Avg_{10}(Y_i)=\frac{1}{10}(100*4 + 0*6)=40$
+	
++ .pink[__Practice Problems (3)__]
+
+---
+
+# Measuring Central Tendency
+- $E[Y_i]$ is fixed for a particular population and is called a __parameter__
+
+- The sample average of $Y_i$, $Avg_n(Y_i)$, aka $\bar{Y}$, varies from one sample to another
+
+- $\bar{Y}$ is a good estimator of $E[Y_i]$ 
+## Law of Large Numbers (LLN)
+> LLN implies that $\bar{Y}$ will be very close to $E[Y_i]$ as the sample size grows
+
+---
+
+# LLN
+
+- To test LLN let's flip a fair coin 100,000 times 
+- Record cumulative average (H=1) (T=0)
+- $E[Y_i]=0.5$
+---
+
+# LLN
+
+```{r out.width = '100%', echo = F, include = F, eval = T}
+tossCoin = function(n=30, p=0.5) {
+
+  # create a probability distribution, a vector of outcomes (H/T are coded using 0/1)
+  # and their associated probabilities
+  outcomes = c(0,1) # sample space
+  probabilities = c(1-p,p)
+  
+  # create a random sample of n flips; this could also be done with
+  # the rbinom() function, but sample() is perhaps more useful
+  flips = sample(outcomes,n,replace=T,prob=probabilities)
+  
+  # now create a cumulative mean vector
+  cum_sum = cumsum(flips)
+  index = c(1:n)
+  cum_mean = cum_sum / index
+  
+  # now combine the index, flips and cum_mean vectors
+  # into a data frame and return it
+  # return(data.frame(index,flips,cum_mean))
+  return(data.frame(index,cum_mean))
+}
+ggplotCoinTosses = function(n=30, p=.50) {
+  # visualize how cumulative average converges on p  
+  # roll the dice n times and calculate means
+  trial1 = tossCoin(n,p)
+  max_y = ceiling(max(trial1$cum_mean))
+  if (max_y < .75) max_y = .75 
+  min_y = floor(min(trial1$cum_mean))
+  if (min_y > .4) min_y = .4
+  
+  # calculate last mean and standard error
+  last_mean = round(trial1$cum_mean[n],9)
+  
+  # plot the results together
+  plot1 = ggplot(trial1, aes(x=index,y=cum_mean)) +
+    geom_line(colour = "blue") +
+    geom_abline(intercept=0.5,slope=0, color = 'red', size=.5) +      
+    theme(plot.title = element_text(size=rel(1.5)),
+          panel.background = element_rect()) +
+    labs(x = "n (number of tosses)", 
+         y = "Cumulative Average") +
+    scale_y_continuous(limits = c(min_y, max_y)) +
+    scale_x_continuous(trans = "log10",
+                       breaks = trans_breaks("log10",function(x) 10^x),
+                       labels = trans_format("log10",math_format(10^.x))) +
+    annotate("text",
+             label=paste("Cumulative mean =", last_mean,
+                         "\nEV =",  p,
+                         "\nSample size =", n), 
+             y=(max_y - .20), 
+             x=10^(log10(n)/2), colour="darkgreen") +
+    annotate("text",
+           label=paste("P(Heads) with Fair Coin = 0.50"), 
+           y=(max_y - .80), 
+           x=10^(log10(n)/2), colour="red")
+
+  return(plot1)
+}  
+```
+```{r out.width = '100%', echo = F, eval = T}
+# call the function; let's use a fair coin
+ggplotCoinTosses(100000, .50)
+```
+
+---
+
+# LLN
+
+```{r out.width = '100%', echo = F, eval = T}
+# call the function; let's use a fair coin
+ggplotCoinTosses(100000, .50)
+```
+
+---
+# Sampling Distribution
+- __Recap:__ We have a _sample_ mean and we are trying to learn about a _population_ mean
+
+- You can imagine that if we took a different sample of ![:scale 4%](BlockU.png) students that the average height would be different
+
+- If you did this many times this would create a distribution, we call this the __sampling distribution__
+
+- Let's illustrate this point using data on schools sizes in CA
+---
+# Sampling distribution
+## Number of Students in CA Schools
+- To illustrate, consider data on the \# of students in CA schools
+- Here is the distribution
+```{r out.width = '90%', echo = F}
+library(AER)
+data("CASchools")
+hist(CASchools$students, breaks=100)
+```
+---
+# Sampling distribution
+## Average \# of Students in CA Schools
+- Now suppose we calculated the average school size repeatedly and kept track of these averages
+--
+```{r out.width = '55%', echo = F}
+knitr::include_graphics("Course_Outline_files/CLT_CAschool.gif")
+```
+
+
+---
+# Unbiasedness and Consistency
+- __Unbiasedness of $\bar{Y}$:__ $E[\bar{Y}]=E[Y_i]$, that is, the average across many draws of $\bar{Y}$ is the underlying population mean.
+  + From previous example, this is saying that the mean of the _sampling distribution_ equals the true population mean
+  
+- __Consistency of $\bar{Y}$:__ We want the uncertainty of our estimator $E[Y_i]$ to decrease as the number of observations in the sample grows. I.e., we want the probability that the estimate ^μY falls within a small interval around the true value μY to get increasingly closer to 1 as n grows. We write this as
+---
+# Measuring Variability
+- To assess variability we look at squared deviations from the mean, aka, __Variance__
+  + __Sample Variance:__ $S(Y_i)^2 = \frac{1}{n} \sum_{i=1}^{n}(Y_i - \bar{Y})^2$
+  + __Population Variance:__ $V(Y_i) = E\left[(Y_i - E[\bar{Y}])^2\right]=\sigma_Y^2$
+	
+- __Standard Deviation:__ Square root of the variance $\sigma_Y = \sqrt{\sigma_Y^2}$
+- __In Stata:__ Summarizing data
+  + `sum Y, detail`
+	
+- We want to characterize the variance of  $\bar{Y}$ in repeated samples, aka, __Sampling Variance__
+  + $V(\bar{Y}) = E\left[(\bar{Y} - E[\bar{Y}])^2\right]=E\left[(\bar{Y} - E[Y_i])^2\right]$
+	+ By the unbiasedness property
+  + $V(\bar{Y})$ is variance of sample mean while $V(Y_i)$ or $\sigma_Y^2$ denotes variance of underlying data
+	
+
+---
+
+\frame{{Measuring Variability (cont.)}
+%[<+->]
+- Sampling variance is related to descriptive variance
+\begin{align*}
+V(\bar{Y}) = V\left(\frac{1}{n}\sum_{i=1}^n{Y_i}\right) &= \frac{1}{n^2} \sum_{i=1}^n \sigma^2_Y\\
+&=\frac{n \sigma^2_Y}{n^2} = \textcolor{red}{\frac{\sigma^2_Y}{n}}
+End{align*}
+	
++ Variance of a sum is the sum of variances
++ Constants are squared when pulled out of a variance
+	
+- Thus, sampling variance of an average depends on variance of underlying data and number of observations
+- LLN at work, large $n$ implies little dispersion
+
+}
+
+\frame{{Standard Errors}
+%[<+->]
+- We usually work with standard deviation of sample mean rather than variances
+- __Standard error} is the standard deviation of a test statistic, e.g., the sample average
+- $SE(\bar{Y}) = \sqrt{V(\bar{Y})} = \frac{\sigma_Y}{\sqrt{n}}$
+- $\widehat{SE}(\bar{Y}) = \frac{S(Y_i)}{\sqrt{n}}$, Estimated Standard Error
+- Standard errors summarize variability in an estimate due to _random sampling}
+- Again, standard errors $\neq$ standard deviation of underlying data
+
+}
+
+\section{Summary of First Lecture}
+\frame{
+
+- Okay, take a deep breath
+- What have we learned?
+	
++ We can learn about populations of people by looking at samples, but doing so introduces noise due to random sampling
++ We want to estimate averages in the population by estimating averages in a sample
++ The amount of noise is summarized by sampling variance
++ Variances are often large so we instead work with standard errors
++ Sample averages are good estimates for population averages if we have lots of observations (LLN)
+	
+- What's next?
+	
++ Testing hypotheses, aka, the entire point of research!
+	
+
+}
+
+\section{Review from last time and Today's Outline}
+\frame{
+%[<+->]
+- Remember to Check-in!
+- Statistics let us use samples to learn about populations
+	%[<+->]
++ Interested in how policies affect groups. We care about two group characteristics, the central tendency (average) and the dispersion (variance)
++ LLN: use sample averages, $\bar{Y}$, to learn about population averages, $E[Y]$
++ CLT: use sample variance, $S(Y_i)^2$, to learn about how $\bar{Y}$ is distributed in population, sampling variance $V(\bar{Y})$
+	
+%- With information on the shape of the sampling distribution, e.g., $E[Y]$ \& $V(\bar{Y})$, we can test hypothesis about how sample relates to population
+%- Standard error is standard deviation of the distribution of a test statistic, $SE(\bar{Y})=\sqrt{V(\bar{Y})}$
+%- t-statistic characterizes the likelihood of the given hypothesis
+
+}
+
+\frame{{Today}
+
+- Practice problems from last time
+- Central Limit Theorem
+- t-Statistic
+- Conditional Expectations
+- Applications to Experiments
+- Start into Randomized Control Trials
+
+}
+
+\frame{{Practice Problems from Last Time}
+
+- __Expected Values:} \textcolor{webred}{Practice Problems (2)}
+
+}
+\section{Central Limit Theorem}
+\frame{
+
+- _Last time:} LLN says that sample average is good estimate for population average
+- Want to test hypotheses about population, but there is noise from random sampling
+- If average age in CPS _sample} is 38, can we confidently conclude that the average age in full US _population} is not 40?
+- We need to understand how $\bar{Y}$ is distributed first
+
+
+}
+
+\frame{
+
+- Here, I randomly sampled the CPS data 2000 times and calculated the sample means
+
+
+\centering
+__Sampling Distribution of $\bar{Y}$}
+
+\includegraphics[width=.4\linewidth]{CLT_age_2000iter.png}
+
+
+- Now we can say more confidently that the population mean is likely not 40
+- We want to quantify this
+- Shape looks suspiciously like the normal distribution...
+
+
+}
+
+
+\frame{
+\begin{block}{Central Limit Theorem (CLT)}
+Under general conditions, if the sample is large enough, then the sampling distribution of $\bar{Y}$ is approximately normally distributed
+End{block}
+
+%[<+->]
+- True regardless of how $Y_i$ is distributed!
+- This is useful for testing hypotheses because we can gauge our confidence
+- Let's see if we can characterize how confident we are that average age in full US _population} is 38
+
+}
+
+\frame{
+\centering
+__Sampling Distribution of $\bar{Y}$}
+
+\includegraphics[width=.58\linewidth]{mean_cps.png}
+
+- 95\% of $\bar{Y}$'s fall between red lines
+- Can't reject hypothesis that $E[Y]=38$ at this level of confidence
+- We care about how far away $\bar{Y}$ is from 38, i.e., $\bar{Y} - 38$, so let's subtract
+
+}
+\frame{
+\centering
+__Sampling Distribution of $\bar{Y} - 38$}
+
+\includegraphics[width=.58\linewidth]{mean_m_cps.png}
+
+- If hypothesis is correct and $E(\bar{Y})=38$, then distribution centers on 0
+- Now, divide by standard error, $SE(\bar{Y})=.08$, so that distribution has standard deviation of 1
+
+}
+\frame{
+\centering
+__Sampling Distribution of $\frac{\bar{Y} - 38}{0.08}$}
+
+\includegraphics[width=.58\linewidth]{mean_std_cps.png}
+
+- Now about 95\% of values in sampling distribution fall between -2 and 2
+- If our sample average, $\bar{Y}$ is such that $\left|\frac{\bar{Y} - 38}{0.08}\right|>$ 2, we can confidently say $E[Y]\neq 38$ ($\bar{Y}$ is estimate for $E[Y]$)
+
+}
+
+\frame{
+%[<+->]
+- We just derived the t-Statistic
+\begin{block}{$t$-Statistic}
+Suppose we want to test whether the population mean, $E[Y_i]$, takes on a particular value, $\mu$. The _t-Statistic} for sample mean under this hypothesis is
+\begin{equation*}
+t(\mu) = \frac{\bar{Y} - \mu}{\widehat{SE}(\bar{Y})}
+End{equation*} End{block}
+- We often are interested in _null hypothesis} that $\mu=0$
+- __In Stata:} One-sample t-test
+	
++ \texttt{ttest Y=0}
+	
+- \textcolor{red}{Practice Problems (2)}
+
+}
+
+
+\frame{
+
+- Suppose we want to test the null hypothesis that the average age in the national population is 40, $H_0: E[Y]=40$
+- Calculate the Standard Error
+
+\centering
+\includegraphics[width=\linewidth]{Calc_SE.png}
+}
+\frame{
+
+- Suppose we want to test the null hypothesis that the average age in the national population is 40, $H_0: E[Y]=40$
+- Calculate the t-Statistic
+
+\centering
+\includegraphics[width=\linewidth]{Calc_tStat.png}
+}
+
+
+\frame{{$t$-Statistics - continued}
+%[<+->]
+- Values larger than 2 (in absolute value) are unlikely, occur less than 5\% of the time
+- _Rule of Thumb:} If $\mu=0$ and t-stat $>2$ we say the sample mean is _statistically different from zero}
+- Rather than check the sample against only $\mu$, construct set of all values consistent with the data
+- _Confidence Interval (CI):} $[\bar{Y} - 2 \times \widehat{SE}(\bar{Y}), \bar{Y} + 2 \times \widehat{SE}(\bar{Y})]$
+- CI should contain $E[Y_i]$ roughly 95\% of the time
+
+}
+
+\frame{
+%[<+->]
+- The CLT is so powerful because it tells us distribution of the t-statistic using only sample information
+	
++ If $E[Y_i]=\mu$ then $t(\mu)$ is also approximately _standard} normally distributed
++ Recall, _standard normal distribution} has mean of 0 and s.d. of 1
+	
+- True regardless of how $Y_i$ is distributed!
+- t-statistic let's us use the sample to test hypotheses about the population
+
+}
+
+\frame{
+\centering
+\includegraphics[width=.63\linewidth]{MMFig12.pdf}
+}
+\frame{
+\centering
+\includegraphics[width=.66\linewidth]{MMFig13.pdf}
+}
+\frame{
+\centering
+\includegraphics[width=.63\linewidth]{MMFig14.pdf}
+}
+
+
+
+
+\section{Conditional Probabilities and Expectations}
+\frame{
+
+- Now we want to begin to compare outcomes between different groups
+- To do this we need to be able to calculate averages for these groups
+- This will eventually be used to compare outcomes for treatment and control groups
+
+}
+
+\frame{
+Consider the __joint distribution} for Weather Conditions and Commuting Times, i.e., probability that random variables $X$ and $Y$ take on different values simultaneously
+\begin{tabular}{lccc}
+&\parbox{2cm}{\centering Rain ($Y=0$)}&\parbox{2cm}{\centering No Rain ($Y=1$)}& Total\\\hline
+Long commute ($X=0$) & 0.15 & 0.07 & 0.22\\\hline
+Short commute ($X=1$)&0.15&0.63&0.78\\\hline
+Total&0.30&0.70&1.000\\
+End{tabular}
+%[<+->]
+- 22\% of commutes are long, i.e., $P(X=0)=.22$
+- 15\% of commutes are long and have rain, i.e., $P(X=0,Y=0)=0.15$
+
+}
+
+\frame{
+\begin{tabular}{lccc}
+&\parbox{2cm}{\centering Rain ($Y=0$)}&\parbox{2cm}{\centering No Rain ($Y=1$)}& Total\\\hline
+Long commute ($X=0$) & 0.15 & 0.07 & 0.22\\\hline
+Short commute ($X=1$)&0.15&0.63&0.78\\\hline
+Total&0.30&0.70&1.000\\
+End{tabular}
+%[<+->]
+- __Conditional probabilities} tell the probability of a random variable, given the value of another random variable, i.e., $Pr(Y=y|X=x)$
+- $Pr(Y=y|X=x)=\frac{Pr(Y=y,X=x)}{Pr(X=x)}$
+- Prob. of a long commute if you know it is raining is $Pr(X=0|Y=0)=\frac{0.15}{0.30}=.5$
+- Makes sense, looking at the first column, if you know it is raining, then you have a 50/50 chance
+
+}
+
+\frame{
+\begin{tabular}{lccc}
+&\parbox{2cm}{\centering Rain ($Y=0$)}&\parbox{2cm}{\centering No Rain ($Y=1$)}& Total\\\hline
+Long commute ($X=0$) & 0.15 & 0.07 & 0.22\\\hline
+Short commute ($X=1$)&0.15&0.63&0.78\\\hline
+Total&0.30&0.70&1.000\\
+End{tabular}
+%[<+->]
+- __Conditional Expectation:} The expected value of $Y$ given that we know something about $X$, \vspace*{-.5cm}\begin{equation*}
+E(Y|X=x) = \sum_{i=1}^k y_i Pr(Y=y_i|X=x)
+End{equation*}
+- If someone told you they had a short commute, what is the expected value of rain?
+- $Pr(Y=0|X=1)=\frac{Pr(X=1,Y=0)}{Pr(X=1)}=\frac{.15}{.78}=.19$, $Pr(Y=1|X=1)=\frac{Pr(X=1,Y=1)}{Pr(X=1)}=\frac{.63}{.78}=.81$, and $E(Y|X=1)=0*.19 + 1*.81=.81$
+- 81\% chance of no rain given short commute
+
+}
+
+\frame{{Practice}
+Consider the joint distribution of Employment status and college graduation in the U.S. population
+\begin{tabular}{lccc}
+&\parbox{2cm}{\centering Unemployed ($Y=0$)}&\parbox{2cm}{\centering  Employed ($Y=1$)}& Total\\\hline
+Non-college grads ($X=0$) & 0.053 & 0.586 & 0.639\\\hline
+College grads ($X=1$)&0.015&0.346&0.361\\\hline
+Total&0.068&0.932&1.000\\
+End{tabular}
+
+- \textcolor{webred}{Practice Problems (2)}
+- Calculate $E(Y)$
+- Calculate $E(Y|X=1)$
+
+}
+
+\frame{
+Consider the joint distribution of Employment status and college graduation in the U.S. population
+\begin{tabular}{lccc}
+&\parbox{2cm}{\centering Unemployed ($Y=0$)}&\parbox{2cm}{\centering  Employed ($Y=1$)}& Total\\\hline
+Non-college grads ($X=0$) & 0.053 & 0.586 & 0.639\\\hline
+College grads ($X=1$)&0.015&0.346&0.361\\\hline
+Total&0.068&0.932&1.000\\
+End{tabular}
+
+- __Calculate $E(Y)$}
+\begin{align*}
+E(Y)&=0*Pr(Y=0) + 1*Pr(Y=1)\\
+&=0*0.068+1*0.932 = 0.932
+End{align*}
+- __Calculate $E(Y|X=1)$}
+$Pr(Y=0|X=1)=\frac{Pr(X=1,Y=0)}{Pr(X=1)}=\frac{.15}{.361}=.042$, $Pr(Y=1|X=1)=\frac{Pr(X=1,Y=1)}{Pr(X=1)}=\frac{.346}{.361}=.958$, and $E(Y|X=1)=0*.042 + 1*.958=.958$
+
+}
+
+
+\section{Applications to Experiments}
+\frame{
+%[<+->]
+- We are often interested in comparing averages between treatment and control groups
+- _Treatment Group Average:} $\bar{Y}^1=Avg_n[Y_i|D_i=1]$
+- _Control Group Average:} $\bar{Y}^0=Avg_n[Y_i|D_i=0]$
+- Most important null hypothesis is that the treatment has no effect a.k.a. the samples used to construct treatment/control averages come from the same population
+- If treatment has effect, then populations from which treatment and control observations are drawn are different
+	
++ They have different means, $\mu_1$ and $\mu_0$
+	
+
+}
+
+\frame{
+%[<+->]
+- We determine whether $\mu_1$ and $\mu_0$ are statistically different using the appropriate t-statistic
+- What do we need to calculate the t-statistic?
+	\begin{enumerate}
++ Test statistic of interest: $\bar{Y}^1 - \bar{Y}^0$
++ Hypothesis of interest: $\mu$, usually equals 0, aka, groups are the same, $\bar{Y}^1 = \bar{Y}^0$
++ Standard error of test statistic: $SE(\bar{Y}^1 - \bar{Y}^0)$
+	End{enumerate}
+- First two are straightforward
+- Let's calculate the standard error
+
+}
+
+\frame{
+%[<+->]
+- Standard error for comparing means is the square root of the sampling variance of $\bar{Y}^1 - \bar{Y}^0$
+- Sampling variance of  $\bar{Y}^1 - \bar{Y}^0$ is given by
+\begin{align*}
+V(\bar{Y}^1 - \bar{Y}^0) &= V(\bar{Y}^1) + V(\bar{Y}^0)\\
+&= \frac{\sigma^2_Y}{n_1}+\frac{\sigma^2_Y}{n_0} = \sigma^2_Y \left[\frac{1}{n_1} + \frac{1}{n_0}\right]
+End{align*}
+	
++ For now assume variance treatment and control samples are the same
+	
+- __Standard Error:} $SE(\bar{Y}^1 - \bar{Y}^0) = \sigma_Y \sqrt{\frac{1}{n_1} + \frac{1}{n_0}}$
+
+}
+
+\frame{
+%[<+->]
+- Because $\sigma_Y^2$ must be estimated, in practice we use
+\begin{equation*}
+\hat{SE}\left(\bar{Y}^1 - \bar{Y}^0\right)= S(Y_i)\sqrt{\frac{1}{n_1} + \frac{1}{n_0}}
+End{equation*}
+- $S(Y_i)$: _pooled sample standard deviation} from both treatment and control groups
+- Null Hypothesis ($H_0$): $\mu_1 - \mu_0 = \mu$
+- $t(\mu)= \frac{\bar{Y}^1 - \bar{Y}^0 - \mu}{\hat{SE}\left(\bar{Y}^1 - \bar{Y}^0\right)}$
+- We usually are interested in testing for equal means, i.e., $\mu=0$
+- __In Stata:}
+	
++ \texttt{ttest Y, by(treat)}
+	
+- \textcolor{red}{Practice Problems (2)}
+
+}
+
+\frame{
+
+- Suppose we want to test whether the average age is the same for people living in big and small cities
+- What is the t-Statistic for the $H_0$ that there is no difference
+
+\centering
+\includegraphics[width=.9\linewidth]{Calc_tStat2Samp.png}
+}
+
+\frame{{Statistical vs. Economic Significance}
+%[<+->]
+- Large $t$-statistic occurs when estimated effect is large or when standard error is small (e.g., from large sample)
+- Statistical significance does not mean the relationship is important or substantively different and vice versa
+	
++ From the practice question, are the average age differences between big and small cities statically significantly different? Yes. Are they economically meaningful? Probably not.
+	
+
+}
+
+\frame{{Other Concepts to Review}
+
+- There are several other statistical concepts that will appear throughout the course that will not be covered in lecture, but that are detailed in Chapters 2 \& 3 (SW)
+- Read these chapters carefully and be comfortable with all the "Key Concepts" sections
+
+}
+
+
