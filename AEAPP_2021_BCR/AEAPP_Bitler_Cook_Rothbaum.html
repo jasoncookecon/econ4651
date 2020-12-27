@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Working for your Bread:</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".hi-green[Marianne Bitler], UC Davis &amp; NBER" />
+    <meta name="author" content=".hi-green[Jason Cook], University of Utah" />
+    <meta name="author" content=".hi-green[Jonathan Rothbaum], US Census Bureau" />
+    <link href="AEAPP_Bitler_Cook_Rothbaum_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="AEAPP_Bitler_Cook_Rothbaum_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="AEAPP_Bitler_Cook_Rothbaum_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="AEAPP_Bitler_Cook_Rothbaum_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="AEAPP_Bitler_Cook_Rothbaum_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="my-css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Working for your Bread:
+## The Labor Supply Effects of SNAP
+### .hi-green[Marianne Bitler], UC Davis &amp; NBER
+### .hi-green[Jason Cook], University of Utah
+### .hi-green[Jonathan Rothbaum], US Census Bureau
+
+---
+
+# Disclaimer
+
+&gt; The content is solely the responsibility of the authors and does not necessarily represent the official views of RIDGE, USDA, or the Census Bureau. Results have gone through Census disclosure review under the following release numbers: CBDRB-FY21-POP001-0045,  CBDRB-FY21-POP001-003, and CBDRB-FY21-POP001-0049.
+
+---
+
+
+
+
+# Motivation
+
+- SNAP primary component of U.S. safety net
+
+- In 2019, $60 billion for nutrition benefits to over 36 million people
+
+- Program means-tested `\(\Rightarrow\)` economic theory predicts `\(\downarrow\)` labor supply ([Hoynes and Schanzenbach, 2015](#bib-Hoynes2015))
+
+--
+
+- **Qualitative evidence:** Awareness of earnings/benefits trade off
+
+&gt; I was offered a job for $2 more, and then, I had to account for the travel... [I]f I take this job with me spending basically as much money as I’m making, .hi[my SNAP benefits are going to be lowered as well]. So it basically would’ve been me working backwards. [emphasis added] ([Caspi De
+Marco, et al., 2020](#bib-Caspi2020))
+
+--
+
+- Sparse literature relating SNAP to labor supply
+
+
+---
+
+# Literature
+
+## Early Literature
+
+-  Early literature uses structural modeling to link SNAP participation and labor supply decisions ([Moffitt, 2004](#bib-Robert2004))
+--
+
+
+## Initial Rollout
+- More recent work exploits the county-level roll out of the Food Stamp program and finds substantial negative labor supply effects for single mothers ([Hoynes and Schanzenbach, 2012](#bib-Hoynes2012))
+
+---
+
+
+# Literature
+
+## Post Rollout Studies
+- Literature studying time period after initial welfare reform also limited
+
+- SNAP expansions among immigrant populations reduce work hours ([East, 2018](#bib-East2016))
+
+- Small literature on natives is mixed
+  - Little work disincentives ([Scholz Moffitt, et al., 2009](#bib-Scholz2009); [Moffitt, 2016](#bib-Moffitt2016); [Ben-Shalom Moffitt, et al., 2011](#bib-Ben-Shalom2011))
+  
+  - Conversely, SNAP recipients induced to enroll due to increases in the purchasing power of SNAP more likely to be employed full time ([Farkhad and Meyerhoefer, 2018](#bib-Farkhad2018))
+  
+---
+
+# Literature
+
+## ABAWDs&lt;sup&gt;.green[**+**]&lt;/sup&gt;
+
+- Growing strand of literature assessing effects of work requirements for ABAWDs 
+
+- Mixed results ([Harris, 2019](#bib-Harris2019); [Han, 2018a](#bib-Han2018a); [Stacy Scherpf, et al., 2016](#bib-Stacy2016); [Cuffey Mykerezi, et al., 2015](#bib-Cuffey2015); [Gray Leive, et al., 2019](#bib-Gray2019); [Stacy Scherpf, et al., 2018](#bib-Stacy2018))
+
+--
+
+- No work studying intensive margin effects of SNAP benefits formula
+
+.hi[Why?] Data requirements are substantial hurdle
+
+.footnote[.green[**+**] .hi[ABAWD] = .hi[A]ble-.hi[B]odied .hi[A]dult .hi[W]ithout .hi[D]ependents]
+
+---
+
+# Survey Data
+
+
+- Much of prior research uses self-reported surveys on earnings and SNAP
+
+- Problematic because self-reported SNAP is under-reported in ways likely not innocuous ([Meyer Mok, et al., 2015b](#bib-Meyer2015a); [Meyer and Sullivan, 2007](#bib-Meyer2007); [Meyer Mittag, et al., 2018](#bib-Meyer2018a); [Meyer and Mittag, 2019b](#bib-Meyer2019); [Haider and Loughran, 2008](#bib-Haider2008))
+
+- Further, to study SNAP benefit formula, need to know monthly income and detailed expenses (e.g., shelter costs) which are .hi[rarely measured]
+
+
+---
+
+# This Paper
+
+- Study how food assistance program rules influence labor supply
+
+- First assessment of whether .hi-green[SNAP benefit formula] distorts labor supply along .hi-green[intensive margin] &lt;sup&gt;.green[**+**]&lt;/sup&gt;
+
+--
+
+- Uses novel, .green[**detailed administrative program data**] for Colorado and Oregon
+
+- .green[**Can observe net income and disregards**], e.g., dependent care and excess shelter cost
+
+- Accurate SNAP eligibility and benefit levels
+
+.footnote[ .green[**+**] .hi[Intensive margin] - how *much* people work as opposed to *whether* they work at all.]
+
+---
+
+# Contribution
+
+- In addition to helping fill gap in SNAP-labor supply literature, also adds to bunching literature
+
+--
+
+## Bunching
+
+- Literature studying intensive margin labor supply distortions in other settings
+
+- Growing public finance literature revitalized by ([Saez, 2010](#bib-Saez2010)) studying adjustments to kinks/notches in budget set
+
+- Much of this work focused on taxes, and papers on means tested programs have focused on tax credits requiring work (see review by ([Kleven, 2016](#bib-Kleven2016))
+
+- No work that we know of has found evidence of this systematic behavior for safety net programs
+
+
+
+---
+# Policy Implications
+
+- SNAP designed to reduce labor supply distortions with benefits that fade out as earned income `\(\uparrow\)` ([Oliveira Prell, et al., 2018](#bib-Oliveira2018))
+  
+  - Whether there are distortions is an empirical question
+  
+- Important policy implications for SNAP and for work requirements in the safety net more broadly
+  - E.g., Time limits
+
+
+
+---
+class: inverse, middle
+
+# Understanding SNAP Benefit Formula
+
+---
+
+# Benefit Calculation
+- Maximum benefits attached to Dept. of Agriculture Thrifty Food Plan
+ 
+  - Amount to feed family at "minimal cost"
+
+- Families expected to contribute 30 percent of available resources (i.e., .hi[net income]) on food
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+**How is net income calculated?**
+
+---
+
+# Benefit Calculation
+## Net income Deductions
+- **Standard** Deduction - .red[*misc costs*]
+  - $167 for 2021, &lt; 3 in SNAP case
+
+- **20% Earned Income** Deduction - .red[*work incentive*]
+
+- **Child Care**, **Child Support**, and **Medical** Deductions  - .red[*rarely used*]
+
+- **Shelter** Deduction
+
+  - Rent/utility costs exceeding half of net income
+  
+  - Capped at $586 for 2021, unless disabled or elderly case
+
+---
+# Share of Cases using each Disregard
+.pull-left[
+&lt;table class=" lightable-paper lightable-hover" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="empty-cells: hide;" colspan="1"&gt;&lt;/th&gt;
+&lt;th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="TRUE"&gt;Colorado&lt;/div&gt;&lt;/th&gt;
+&lt;th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="TRUE"&gt;Oregon&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Sample &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Full &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Earner &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Full &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Earner &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Child Care Ded. &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 0.04 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 0.09 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Child Support Ded. &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Medical Ded. &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 0.09 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Shelter Ded. &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 0.74 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 0.86 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 0.74 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 0.89 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; N (in millions) &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 5.67 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 1.33 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 49.27 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 10.18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;img src="avg_share.png" width="100%" /&gt;
+]
+
+- .hi["Earner Sample":] $1+ of earned income and not elderly/disabled case
+- .hi[Shelter] is most common deduction outside of earner and standard
+  
+---
+# Average Levels of Net Income Inputs
+.pull-left[
+&lt;table class=" lightable-paper lightable-hover" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="empty-cells: hide;" colspan="1"&gt;&lt;/th&gt;
+&lt;th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="TRUE"&gt;Colorado&lt;/div&gt;&lt;/th&gt;
+&lt;th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="TRUE"&gt;Oregon&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Sample &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Full &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Earner &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Full &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Earner &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Earned Income &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 329.3 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 954.8 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 344.2 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 1033.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Unearned Income &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 378.2 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 75.6 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 401.5 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 52.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Child Care Ded. (&amp;gt;0) &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 264.7 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 244.5 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Child Support Ded. (&amp;gt;0) &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 281.6 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 277.4 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Medical Ded. (&amp;gt;0) &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 347.5 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Shelter Ded. (&amp;gt;0) &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADD8E6 !important;"&gt; 405.1 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #ADBCE6 !important;"&gt; 386.1 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6D8AD !important;"&gt; 425.6 &lt;/td&gt;
+   &lt;td style="text-align:right;color: black !important;background-color: #E6ADBC !important;"&gt; 412.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;img src="avg_amt.png" width="100%" /&gt;
+]
+
+---
+class:white-slide
+
+Mathematically...
+
+First .hi-green["Countable Income"] is calculated
+
+`$$CountableInc = UnErnInc + 0.8ErnInc - StdDepChldMedDed$$`
+--
+
+then the .hi-green[Shelter Deduction] is calculated
+
+`$$ShelterDed = min\left[ShelterCap, Shelter Expenses - \frac{CountableInc}{2}\right]$$`
+ 
+--
+
+Now, .hi-green[Net Income] can be calculated
+
+`$$NI = CountableInc - ShelterDed$$`
+
+--
+
+Finally, we can get .hi-green[Benefits]
+
+`$$Benefits = max\left[MaxBenefit - 0.3*NI, MinBenefit\right]$$`
+
+--
+
+**Note:** Because earned income enters into shelter deduction, .green[**benefit reduction rate** is **steeper** for cases with **shelter deductions**]
+
+---
+class:white-slide
+
+
+
+
+Let's visualize this for a family of 3 with standard deduction and either
+- **No Shelter Expenses** or &lt;span style="color:#B47846"&gt;**$600 of Shelter Expenses**&lt;/span&gt;
+
+--
+
+.pull-left[
+.center[.hi-green[Net Income]]
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+.center[**Earned Income**]
+]
+.pull-right[
+.center[.hi-green[Benefit Amount]]
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+.center[**Earned Income**]
+] 
+
+
+---
+# Maximize Benefits; Net Income `\(=0\)`
+## Take Away
+
+- With shelter deduction, can have sizeable earnings with full benefits
+  
+  - Potential scope for bunching behavior
+
+--
+
+- SNAP benefits taxed away **24 cents** on every dollar of *earned* income for households with **no shelter deduction**
+
+- SNAP benefits taxed away &lt;span style="color:#B47846"&gt;**36 cents**&lt;/span&gt; on every dollar of *earned* income for households with &lt;span style="color:#B47846"&gt;**some excess shelter expenses**&lt;/span&gt;
+
+
+
+--
+
+- Thus, recipients may .hi[bunch at Net Income = 0], i.e., where each additional dollar earned is initially taxed
+
+- Possible .hi[larger effects for households with shelter deduction]
+
+---
+# Empirical Design
+
+- Use well-known bunching estimators utilized in other contexts &lt;sup&gt;.hi[*]&lt;/sup&gt;
+- Augment [Chetty Friedman, et al. (2011)](#bib-Chetty2011) and estimate
+`\begin{equation*}
+    C_j=\sum_{i=0}^{7}\beta_i\cdot\left(Z_j\right)^i+\sum_{i=-200}^{200}\gamma_i\cdot1\left[Z_j=i\right]+\epsilon_j \label{eq:basicbunch}
+\end{equation*}`
+
+	- `\(C_j\)`: number of respondents in net income bin `\(j\)`
+	- `\(Z_j\)`: net income bin for unit ($50 intervals)
+	- Excluded region around net income = 0 is $400
+
+- .green[**Intuition:**] approximate shape of counterfactual bunching region by interpolating the shape from surrounding areas with order 7 polynomial
+
+- Parametric bootstrap for standard errors
+
+
+.footnote[.hi[*] [Kleven (2016)](#bib-Kleven2016); [Saez (2010)](#bib-Saez2010); [Bertanha McCallum, et al. (2019)](#bib-Bertanha2019)]
+
+---
+# Example
+
+&lt;img src="example_bunching.png" width="100%" /&gt;
+
+---
+class: inverse, middle
+
+# Results
+
+---
+# Aggregate Gross/Net Income
+&lt;span style="display:block; margin-top:-20px;"&gt;&lt;/span&gt; 
+
+.pull-left[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+]
+.pull-right[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+]
+
+- .hi[Oregon:] Large mass at &lt;$150 Gross (683,000 cases)
+  - Not centered at NI=0 so not interpreted as caused by kink
+- .hi[Colorado:] Relatively smooth gross income
+- .hi[Both:] No noticeable bunching at NI=0
+
+---
+# Oregon NI by TANF Receipt
+
+Is this bunching induced by other programs?
+
+--
+
+.center[
+&lt;img src="or_rgi_bytanf.png" width="70%" /&gt;
+]
+&lt;span style="display:block; margin-top:-20px;"&gt;&lt;/span&gt; 
+- **First look:** not the case for TANF recipients in Oregon
+- Categorically eligible cases don't exhibit this mass
+
+---
+# Net Income by Size of Case
+
+- Possible that labor market frictions differ by .hi-green[family size]
+
+- Especially true for .hi-green[single-person units]
+
+`\(\Rightarrow\)` We might expect heterogeneity in bunching by SNAP case size
+
+
+---
+# Net Income by Size of Case
+
+.pull-left[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+- $150 mass are single-unit cases, but not centered at NI=0
+]
+--
+
+.pull-right[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+- Possible bunching for single-unit cases (n.s.)
+]
+
+--
+
+Let's explore the .hi-green[single-unit bunchers in CO], by .hi-green[self employment income]
+
+
+---
+# CO NI by Self Employment Income 
+
+
+- Self Employed exhibit most bunching behavior in other contexts ([Saez, 2010](#bib-Saez2010); [Chetty Friedman, et al., 2011](#bib-Chetty2011))
+
+- Colorado provides data on self employment income
+
+--
+
+.pull-left[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+]
+.pull-right[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+]
+---
+# Colorado NI for Case Size = 1
+.pull-left[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+]
+.pull-right[
+- .hi-green[Statistically significant bunching] for self-employed single-unit cases
+
+- Not visible in single-unit cases without self-employment income
+
+- .hi-green[Economically small]: 0.3 percent of cases in Colorado earner sample
+]
+
+--
+
+- Next, we explore possible bunching heterogeneity by .hi[shelter deduction]
+---
+# NI by Shelter Deduction
+
+.pull-left[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+]
+.pull-right[
+![](AEAPP_Bitler_Cook_Rothbaum_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+]
+
+- No substantial heterogeneity (.pink[aside from OR low earners])
+
+---
+#Conclusion
+
+## Summary 
+
+- Explored bunching where SNAP benefits are initially taxed
+
+- Discussed why there could be possible heterogeneity: .hi-pink[case size], .hi-green[self employed], .brown[**shelter deduction**]
+
+- Only evidence of bunching for self-employed single-unit cases
+  
+  - **Economically small effects**
+  
+## .hi[Punchline] 
+Labor distortions from SNAP benefit kink .red[not a first-order concern]
+  
+---
+# Next Steps
+
+- Leverage people's experience with SNAP. Do people with experience do more bunching?
+
+- Explore impact of work requirements (e.g., ABAWD&lt;sup&gt;.green[**+**]&lt;/sup&gt; time limits)
+
+- Explore impact of notches from net/gross income tests, particularly for shelter deduction cases
+
+
+.footnote[.green[**+**] .hi[ABAWD] = .hi[A]ble-.hi[B]odied .hi[A]dult .hi[W]ithout .hi[D]ependents]
+
+---
+class: white-slide, center, middle
+
+.huge[**Thank you**]
+---
+count: false 
+
+# References
+
+&lt;a name=bib-Ben-Shalom2011&gt;&lt;/a&gt;[Ben-Shalom, Y, R. Moffitt, et
+al.](#cite-Ben-Shalom2011) (2011). "An assessment of the
+effectiveness of anti-poverty programs in the United States". In:
+_Vasa_. URL:
+[http://medcontent.metapress.com/index/A65RM03P4874243N.pdf%5Cnhttp://www.nber.org/papers/w17042](http://medcontent.metapress.com/index/A65RM03P4874243N.pdf%5Cnhttp://www.nber.org/papers/w17042).
+
+&lt;a name=bib-Bertanha2019&gt;&lt;/a&gt;[Bertanha, M, A. H. McCallum, et
+al.](#cite-Bertanha2019) (2019). "Better Bunching, Nicer Notching".
+In: _SSRN Electronic Journal_. DOI:
+[10.2139/ssrn.3144539](https://doi.org/10.2139%2Fssrn.3144539).
+
+&lt;a name=bib-Caspi2020&gt;&lt;/a&gt;[Caspi, C., M. De Marco, et
+al.](#cite-Caspi2020) (2020). "SNAP and work-related policies: An
+in-depth analysis of work perceptions and behaviors". In: _RIDGE
+Innovation Grantee Conference_.
+
+&lt;a name=bib-Chetty2011&gt;&lt;/a&gt;[Chetty, R, J. N. Friedman, et
+al.](#cite-Chetty2011) (2011). "Adjustment Costs, Firm Responses, and
+Micro vs. Macro Labor Supply Elasticities: Evidence from Danish Tax
+Records.". In: _The Quarterly Journal of Economics_ 126.2, pp.
+749-804.
+
+---
+count: false
+
+# References
+
+&lt;a name=bib-Cuffey2015&gt;&lt;/a&gt;[Cuffey, J., E. Mykerezi, et
+al.](#cite-Cuffey2015) (2015). "Food Assistance and Labor Force
+Outcomes of Childless Adults: Evidence from the CPS".
+
+&lt;a name=bib-East2016&gt;&lt;/a&gt;[East, C. N.](#cite-East2016) (2018).
+"Immigrants' labor supply response to Food Stamp access". In: _Labour
+Economics_ 51.April, pp. 202-226.
+
+&lt;a name=bib-Farkhad2018&gt;&lt;/a&gt;[Farkhad, B. F. and C. D.
+Meyerhoefer](#cite-Farkhad2018) (2018). "The Impact of Participation
+in SNAP on Labor Force Decisions".
+
+&lt;a name=bib-Gray2019&gt;&lt;/a&gt;[Gray, C, A. Leive, et al.](#cite-Gray2019)
+(2019). "Employed in a SNAP? The Impact of Work Requirements on
+Program Participation and Labor Supply".
+
+&lt;a name=bib-Haider2008&gt;&lt;/a&gt;[Haider, S. J. and D. S.
+Loughran](#cite-Haider2008) (2008). "The effect of the social
+security earnings test on male labor supply: New evidence from survey
+and administrative data". In: _Journal of Human Resources_. ISSN:
+0022166X. DOI:
+[10.3368/jhr.43.1.57](https://doi.org/10.3368%2Fjhr.43.1.57).
+---
+count: false
+
+# References
+
+&lt;a name=bib-Han2018a&gt;&lt;/a&gt;[Han, J.](#cite-Han2018a) (2018a). "The
+Impact of Snap Work Requirements on Labor Supply". In: _SSRN
+Electronic Journal_. DOI:
+[10.2139/ssrn.3296402](https://doi.org/10.2139%2Fssrn.3296402).
+
+&lt;a name=bib-Harris2019&gt;&lt;/a&gt;[Harris, T. F.](#cite-Harris2019) (2019).
+"Do SNAP Work Requirements Work?". In: _SSRN Electronic Journal_.
+DOI: [10.2139/ssrn.3379741](https://doi.org/10.2139%2Fssrn.3379741).
+
+&lt;a name=bib-Hoynes2015&gt;&lt;/a&gt;[Hoynes, H. W. and D. W.
+Schanzenbach](#cite-Hoynes2015) (2015). "U.S. Food and Nutrition
+Programs".
+
+&lt;a name=bib-Hoynes2012&gt;&lt;/a&gt;[Hoynes, H. W. and D. W.
+Schanzenbach](#cite-Hoynes2012) (2012). "Work incentives and the Food
+Stamp Program". In: _Journal of Public Economics_ 96.1-2, pp.
+151-162.
+
+&lt;a name=bib-Kleven2016&gt;&lt;/a&gt;[Kleven, H. J.](#cite-Kleven2016) (2016).
+"Bunching". In: _Annual Review of Economics_ 8.June, pp. 435-464.
+
+---
+count: false
+
+# References
+
+&lt;a name=bib-Meyer2019&gt;&lt;/a&gt;[Meyer, B. D. and N.
+Mittag](#cite-Meyer2019) (2019b). "Using Linked Survey and
+Administrative Data to Better Measure Income: Implications for
+Poverty, Program Effectiveness and Holes in the Safety Net". In:
+_American Economic Journal: Applied Economics_ 11.2, pp. 176-204.
+
+&lt;a name=bib-Meyer2018a&gt;&lt;/a&gt;[Meyer, B. D, N. Mittag, et
+al.](#cite-Meyer2018a) (2018). "Errors in Survey Reporting and
+Imputation and Their Effects on Estimates of Food Stamp Program
+Participation". In: _NBER Working Paper \#25143_.
+
+&lt;a name=bib-Meyer2015a&gt;&lt;/a&gt;[Meyer, B. D, W. K. C. Mok, et
+al.](#cite-Meyer2015a) (2015b). "Household Surveys in Crisis". In:
+_Journal of Economic Perspectives_ 29.4, pp. 199-226.
+
+&lt;a name=bib-Meyer2007&gt;&lt;/a&gt;[Meyer, B. D. and J. X.
+Sullivan](#cite-Meyer2007) (2007). "Under-reporting, Take-up, and the
+Distributional Effects of the Food Stamp Program".
+
+---
+count: false
+
+# References
+
+&lt;a name=bib-Robert2004&gt;&lt;/a&gt;[Moffitt, R.](#cite-Robert2004) (2004).
+"Welfare Programs and Labor Supply". In: _Handbook of Public
+Economics_. ISSN: 1098-6596. eprint: arXiv:1011.1669v3.
+
+&lt;a name=bib-Moffitt2016&gt;&lt;/a&gt;[Moffitt, R. A.](#cite-Moffitt2016)
+(2016). "The U.S. Safety Net and Work Incentives: Is There a Problem?
+What should be Done?". In: _The US Labor Market: Questions and
+Challenges for Public Policy_. . Chap. V, pp. 122-138.
+
+&lt;a name=bib-Oliveira2018&gt;&lt;/a&gt;[Oliveira, V., M. Prell, et
+al.](#cite-Oliveira2018) (2018). _Design Issues in USDA's
+Supplemental Nutrition Assistance Program: Looking Ahead by Looking
+Back._. 243. Economic Research Service, pp. 1-80.
+
+&lt;a name=bib-Saez2010&gt;&lt;/a&gt;[Saez, E.](#cite-Saez2010) (2010). "Do
+Taxpayers Bunch at Kink Points?". In: _American Economic Journal:
+Economic Policy_ 2.3, pp. 180-212.
+---
+count: false
+
+# References
+
+&lt;a name=bib-Scholz2009&gt;&lt;/a&gt;[Scholz, J. K, R. A. Moffitt, et
+al.](#cite-Scholz2009) (2009). "Trends in Income Support". In:
+_Changing poverty, changing policies_. New York: Russell Sage
+Foundation, pp. 203-241.
+
+&lt;a name=bib-Stacy2016&gt;&lt;/a&gt;[Stacy, B., E. Scherpf, et
+al.](#cite-Stacy2016) (2016). "New Evidence on Labor Supply and SNAP:
+What Are the Roles of Work Requirements, Expanded Eligibility, and
+New Program Rules?".
+
+&lt;a name=bib-Stacy2018&gt;&lt;/a&gt;[Stacy, B, E. Scherpf, et
+al.](#cite-Stacy2018) (2018). "The Impact of SNAP Work Requirements".
+
+
+&lt;!-- --- --&gt;
+&lt;!-- ```{r , include = T, echo=F} --&gt;
+&lt;!-- #Specify lists --&gt;
+&lt;!-- co_agg &lt;- co_or_rni[["data"]][co_or_rni[["data"]]$group=='CO',4] --&gt;
+&lt;!-- or_agg &lt;- co_or_rni[["data"]][co_or_rni[["data"]]$group=='OR',4] --&gt;
+&lt;!-- co1_no &lt;- data_co_casesz1_selfemp[data_co_casesz1_selfemp$group==' 0',4] --&gt;
+&lt;!-- co1_some &lt;- data_co_casesz1_selfemp[data_co_casesz1_selfemp$group=='&gt;0',4] --&gt;
+
+&lt;!-- density_list &lt;- list("CO Aggregate"= co_agg,  "OR Aggregate"= or_agg, "Some SE Inc." = co1_some, "No SE Inc." = co1_no) --&gt;
+
+&lt;!-- inline_plot &lt;- data.frame(type = c('CO Aggregate', 'OR Aggregate', 'Some SE Inc.', 'No SE Inc.'), density_poly = "", bunch_est = c('-221.9','410,200***','3,470***','-4,625')) --&gt;
+&lt;!-- inline_plot %&gt;% --&gt;
+&lt;!--   kbl(booktabs = TRUE) %&gt;% --&gt;
+&lt;!--   kable_paper(full_width = TRUE) %&gt;% --&gt;
+&lt;!--   column_spec(2, image = spec_plot(density_list, same_lim = FALSE)) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Bunching Estimates --&gt;
+&lt;!-- ```{r , include = T, echo=F} --&gt;
+&lt;!-- coef_table &lt;- data.frame( --&gt;
+&lt;!--   Variables = c("var 1", "var 2", "var 3"), --&gt;
+&lt;!--   Coefficients = c(1.6, 0.2, -2.0), --&gt;
+&lt;!--   Conf.Lower = c(1.3, -0.4, -2.5), --&gt;
+&lt;!--   Conf.Higher = c(1.9, 0.6, -1.4) --&gt;
+&lt;!-- )  --&gt;
+
+&lt;!-- data.frame( --&gt;
+&lt;!--   Variable = coef_table$Variables, --&gt;
+&lt;!--   Visualization = "" --&gt;
+&lt;!-- ) %&gt;% --&gt;
+&lt;!--   kbl(booktabs = T) %&gt;% --&gt;
+&lt;!--   kable_classic(full_width = FALSE) %&gt;% --&gt;
+&lt;!--   column_spec(2, image = spec_pointrange( --&gt;
+&lt;!--     x = coef_table$Coefficients,  --&gt;
+&lt;!--     xmin = coef_table$Conf.Lower,  --&gt;
+&lt;!--     xmax = coef_table$Conf.Higher,  --&gt;
+&lt;!--     vline = 0) --&gt;
+&lt;!--     ) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- &lt;span style="display:block; margin-top:-60px;"&gt;&lt;/span&gt;  --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
