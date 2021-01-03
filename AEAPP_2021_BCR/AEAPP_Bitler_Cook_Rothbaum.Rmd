@@ -31,7 +31,7 @@ BibOptions(check.entries = FALSE,
          style = "markdown",
          hyperlink = TRUE,
          dashed = TRUE)
-bib <- ReadBib("SNAP_WIC.bib", check = FALSE)
+bib <- RefManageR::ReadBib("SNAP_WIC.bib", check = FALSE)
 ```
 ```{r SNAP_ben0, include = F}
 if (!require("pacman")) install.packages("pacman")
@@ -53,7 +53,7 @@ library(datasets)
 
 # Motivation
 
-- SNAP primary component of U.S. safety net
+- SNAP is a primary component of U.S. safety net
 
 - In 2019, $60 billion for nutrition benefits to over 36 million people
 
@@ -63,78 +63,71 @@ library(datasets)
 
 - **Qualitative evidence:** Awareness of earnings/benefits trade off
 
-> I was offered a job for $2 more, and then, I had to account for the travel... [I]f I take this job with me spending basically as much money as I’m making, .hi[my SNAP benefits are going to be lowered as well]. So it basically would’ve been me working backwards. [emphasis added] `r Citep(bib, "Caspi2020")`
+> I was offered a job for $2 more, and then, I had to account for the travel... [I]f I take this job with me spending basically as much money as I’m making, .red[**my SNAP benefits are going to be lowered as well**]. So it basically would’ve been me working backwards. [emphasis added] `r NoCite(bib, "Caspi2020")`.red[(Caspi, De Marco, et al., 2020)]
 
---
-
-- Sparse literature relating SNAP to labor supply
 
 
 ---
 
 # Literature
 
-## Early Literature
+## Sparse literature relating SNAP to labor supply
 
--  Early literature uses structural modeling to link SNAP participation and labor supply decisions `r Citep(bib, "Robert2004")`
+### .large[**Early Literature:**]
+
+- Structural Methods `r Citep(bib, "Robert2004")`
+
 --
 
-
-## Initial Rollout
-- More recent work exploits the county-level roll out of the Food Stamp program and finds substantial negative labor supply effects for single mothers `r Citep(bib, "Hoynes2012")`
-
----
-
-
-# Literature
-
-## Post Rollout Studies
-- Literature studying time period after initial welfare reform also limited
-
+### .large[**More Recent Literature:**] 
+- County-level roll out of the Food Stamp program $\rightarrow$ modest negative labor supply effects for single mothers `r Citep(bib, "Hoynes2012")`
+  
 - SNAP expansions among immigrant populations reduce work hours `r Citep(bib, "East2016")`
-
-- Small literature on natives is mixed
-  - Little work disincentives `r Citep(bib, c("Scholz2009", "Moffitt2016", "Ben-Shalom2011"))`
   
-  - Conversely, SNAP recipients induced to enroll due to increases in the purchasing power of SNAP more likely to be employed full time `r Citep(bib, "Farkhad2018")`
+- Small literature on natives is mixed (.red[Scholz, et al., 2009; Moffitt, 2016; Ben-Shalom, et al., 2011; Farkhad and Meyerhoefer, 2018])
+  
+`r RefManageR::NoCite(bib,c("Scholz2009", "Moffitt2016", "Ben-Shalom2011","Farkhad2018"))`
   
 ---
 
 # Literature
 
-## ABAWDs<sup>.green[**+**]</sup>
+## ABAWDs (.red[**A**]ble-.red[**B**]odied .red[**A**]dult .red[**W**]ithout .red[**D**]ependents)
+- I.e., individuals 18-49 who are required to work to get SNAP more than 3 months of 36 except in downturns.
 
 - Growing strand of literature assessing effects of work requirements for ABAWDs 
 
-- Mixed results `r Citep(bib, c("Harris2019", "Han2018a", "Stacy2016", "Cuffey2015", "Gray2019", "Stacy2018"))`
+- Mixed results `r NoCite(bib, c("Harris2019", "Han2018a", "Stacy2016", "Cuffey2015", "Gray2019", "Stacy2018"))`(.red[Harris, 2019; Han, 2018a; Stacy, Scherpf, et al., 2016; Cuffey, Mykerezi, et al., 2015; Gray, Leive, et al., 2019; Stacy, Scherpf, et al., 2018])<br>
 
 --
 
-- No work studying intensive margin effects of SNAP benefits formula
+## No work studying intensive margin effects of SNAP benefits formula
 
-.hi[Why?] Data requirements are substantial hurdle
+.red[**Why?**] Data requirements are substantial hurdle
 
-.footnote[.green[**+**] .hi[ABAWD] = .hi[A]ble-.hi[B]odied .hi[A]dult .hi[W]ithout .hi[D]ependents]
+
 
 ---
 
-# Survey Data
+# Data Quality
 
 
 - Much of prior research uses self-reported surveys on earnings and SNAP
 
-- Problematic because self-reported SNAP is under-reported in ways likely not innocuous `r Citep(bib, c("Meyer2015a", "Meyer2007", "Meyer2018a", "Meyer2019", "Haider2008"))`
+- Problematic because self-reported SNAP is under-reported in ways likely not innocuous .red[(Harris, 2019; Han, 2018a; Stacy, Scherpf, et al., 2016; Cuffey, Mykerezi, et al., 2015; Gray, Leive, et al., 2019; Stacy, Scherpf, et al., 2018)]
 
-- Further, to study SNAP benefit formula, need to know monthly income and detailed expenses (e.g., shelter costs) which are .hi[rarely measured]
+`r RefManageR::NoCite(bib, c("Meyer2015a", "Meyer2007", "Meyer2018a", "Meyer2019", "Haider2008"))`
+
+- Further, to study SNAP benefit formula, need to know monthly income and detailed expenses (e.g., shelter costs) which are rarely measured
 
 
 ---
 
 # This Paper
+  
+<font size=6>First assessment of whether SNAP benefit formula distorts labor supply along intensive margin <sup>.red[**+**]</sup></font>
 
-- Study how food assistance program rules influence labor supply
-
-- First assessment of whether .hi-green[SNAP benefit formula] distorts labor supply along .hi-green[intensive margin] <sup>.green[**+**]</sup>
+.footnote[ .green[**+**] .red[**Intensive margin**] - how *much* people work as opposed to *whether* they work at all.]
 
 --
 
@@ -144,32 +137,29 @@ library(datasets)
 
 - Accurate SNAP eligibility and benefit levels
 
-.footnote[ .green[**+**] .hi[Intensive margin] - how *much* people work as opposed to *whether* they work at all.]
+
 
 ---
 
 # Contribution
 
-- In addition to helping fill gap in SNAP-labor supply literature, also adds to bunching literature
+<font size=6>Fills gap in SNAP-labor supply and bunching literatures</font>
 
 --
 
 ## Bunching
 
-- Literature studying intensive margin labor supply distortions in other settings
-
 - Growing public finance literature revitalized by `r Citep(bib, "Saez2010")` studying adjustments to kinks/notches in budget set
 
-- Much of this work focused on taxes, and papers on means tested programs have focused on tax credits requiring work (see review by `r Cite(bib,"Kleven2016")`
+- Largely focused on taxes, and papers on means tested programs have focused on tax credits requiring work (see review by `r Cite(bib,"Kleven2016")`
 
-- No work that we know of has found evidence of this systematic behavior for safety net programs
-
+- No evidence of this systematic behavior for safety net programs
 
 
 ---
 # Policy Implications
 
-- SNAP designed to reduce labor supply distortions with benefits that fade out as earned income $\uparrow$ `r Citep(bib, "Oliveira2018")`
+- SNAP designed to reduce labor supply distortions with benefits that fade out as earned income $\uparrow$ `r RefManageR::NoCite(bib, "Oliveira2018")` .red[(Oliveira, Prell, et al., 2018)]
   
   - Whether there are distortions is an empirical question
   
@@ -190,21 +180,21 @@ class: inverse, middle
  
   - Amount to feed family at "minimal cost"
 
-- Families expected to contribute 30 percent of available resources (i.e., .hi[net income]) on food
+- Families expected to contribute 30 percent of available resources (i.e., .red[**net income**]) for food
 
 --
 
 <br>
 <br>
 
-**How is net income calculated?**
+**<font size=6>How is net income calculated?</font>**
 
 ---
 
 # Benefit Calculation
-## Net income Deductions
+## **Net Income Deductions**
 - **Standard** Deduction - .red[*misc costs*]
-  - $167 for 2021, < 3 in SNAP case
+  - $167 for 2021, for fewer than 3 people in SNAP case
 
 - **20% Earned Income** Deduction - .red[*work incentive*]
 
@@ -218,8 +208,8 @@ class: inverse, middle
 
 ---
 # Share of Cases using each Disregard
-.pull-left[
-```{r , include = T, echo=F}
+
+```{r , include = F, echo=F}
 options(knitr.kable.NA = '')
 
 Input <- c('Child Care Ded.','Child Support Ded.', 'Medical Ded.', 'Shelter Ded.','N (in millions)')
@@ -243,20 +233,20 @@ desc.tab2 %>%
   column_spec(5, color = "black",
               background = "#E6ADBC")
 ```
-]
-.pull-right[
 ```{r out.width = '100%', echo = F}
 knitr::include_graphics("avg_share.png")
 ```
-]
 
-- .hi["Earner Sample":] $1+ of earned income and not elderly/disabled case
-- .hi[Shelter] is most common deduction outside of earner and standard
-  
+- .red[**"Earner Sample":**] $1+ of earned income and not elderly or disabled case
+
+- .red[**Shelter**] is most common deduction outside of earner and standard
+
+
+
 ---
 # Average Levels of Net Income Inputs
-.pull-left[
-```{r , include = T, echo=F}
+
+```{r , include = F, echo=F}
 options(knitr.kable.NA = '')
 
 Input <- c('Earned Income','Unearned Income','Child Care Ded. (>0)','Child Support Ded. (>0)', 'Medical Ded. (>0)', 'Shelter Ded. (>0)')
@@ -284,17 +274,18 @@ desc.tab %>%
   column_spec(5, color = "black",
               background = "#E6ADBC")
 ```
-]
-.pull-right[
+
 ```{r out.width = '100%', echo = F}
 knitr::include_graphics("avg_amt.png")
 ```
-]
+
+- Earner sample has $\uparrow$ earnings and $\downarrow$ unearned inc
+- Disregards have similar values, but shelter is most common
 
 ---
 class:white-slide
 
-Mathematically...
+**<font size=6>Mathematically...</font>**
 
 First .hi-green["Countable Income"] is calculated
 
@@ -514,15 +505,15 @@ ben_gi
 
 --
 
-- Thus, recipients may .hi[bunch at Net Income = 0], i.e., where each additional dollar earned is initially taxed
+- Thus, recipients may .red[**bunch at Net Income = 0**], i.e., where each additional dollar earned is initially taxed
 
-- Possible .hi[larger effects for households with shelter deduction]
+- Possible .red[**larger effects for households with shelter deduction**]
 
 ---
 # Empirical Design
 
 - Use well-known bunching estimators utilized in other contexts <sup>.hi[*]</sup>
-- Augment `r Citet(bib, "Chetty2011")` and estimate
+- Augment `r NoCite(bib, "Chetty2011")`.red[Chetty, Friedman, et al. (2011)] and estimate
 \begin{equation*}
     C_j=\sum_{i=0}^{7}\beta_i\cdot\left(Z_j\right)^i+\sum_{i=-200}^{200}\gamma_i\cdot1\left[Z_j=i\right]+\epsilon_j \label{eq:basicbunch}
 \end{equation*}
@@ -536,7 +527,7 @@ ben_gi
 - Parametric bootstrap for standard errors
 
 
-.footnote[.hi[*] `r Citet(bib, c("Kleven2016", "Saez2010", "Bertanha2019", "Gelber2017"))`]
+.footnote[.hi[*] `r NoCite(bib, c("Kleven2016", "Saez2010", "Bertanha2019", "Gelber2017"))`.red[Kleven (2016); Saez (2010); Bertanha, McCallum, et al. (2019)]]
 
 ---
 # Example
@@ -545,6 +536,14 @@ ben_gi
 knitr::include_graphics("example_bunching.png")
 ```
 
+---
+# Empirical Design
+## Caveat
+
+- Specification selected for its simplicity, but has drawbacks
+
+- Bunching likely $\Rightarrow$ non-zero taxable income elasticity at kink, but without restrictions on the heterogeneity distribution any sized elasticity is consistent with kinks (but not notches) .red[(Blomquist, Newey, et al., 2019; Bertanha, McCallum, et al., 2019)] 
+- In future work, leverage benefit changes (e.g., new Thrifty Food Plan adjustments every October, or categorical eligibility) to better model counterfactual density
 ---
 class: inverse, middle
 
@@ -619,26 +618,83 @@ co_or_rni
 ```
 ]
 
-- .hi[Oregon:] Large mass at <$150 Gross (683,000 cases)
+- .red[**Oregon:**] Large mass at <$150 Gross (683,000 cases)
   - Not centered at NI=0 so not interpreted as caused by kink
-- .hi[Colorado:] Relatively smooth gross income
-- .hi[Both:] No noticeable bunching at NI=0
+  - Not seen in categorically eligible cases via TANF .red[(not pictured)]
 
 ---
-# Oregon NI by TANF Receipt
+# Aggregate Gross/Net Income
+<span style="display:block; margin-top:-20px;"></span> 
+```{r , include = T, echo=F}
+#CO/OR Net Income
+st <- 'co_or'
+out <- '_rni'
+infile <- paste('C:/Users/Jason/Box/SNAP/AEA_PP/disclosure/processed/', st, out, '.dta',sep='')
+data_co_or_ni <- read.dta(infile)
 
-Is this bunching induced by other programs?
+co_or_rni <- ggplot(data_co_or_ni, aes(x, y, height = h, group = group , fill=group)) + 
+  geom_ridgeline(scale=1800, alpha = 1) + 
+  geom_vline(xintercept = 0) +
+  scale_fill_cyclical(values = c("lightblue", "#E6BBAD")) +
+  scale_x_continuous(expand = c(0, 0), name = 'Net Income') +
+  scale_y_discrete(expand = c(0, 0)) +
+  coord_cartesian(clip = "off") + 
+  theme_ridges(grid = FALSE, center_axis_labels = TRUE) +
+  theme(axis.title.y=element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  ggtitle('Net Income') +
+  annotate(geom="text", x=-430, y=1.3, label="Oregon",
+           color="black", angle=0, hjust ='left', size=10) +
+  annotate(geom="text", x=-430, y=0.3, label="Colorado",
+           color="black", angle=0, hjust ='left', size=10) +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=25), 
+        plot.title = element_text(size = 40, face = "bold")
+  )
 
---
 
-.center[
-```{r out.width = '70%', echo = F}
-knitr::include_graphics("or_rgi_bytanf.png")
+#CO/OR Gross Income
+st <- 'co_or'
+out <- '_rgi'
+infile <- paste('C:/Users/Jason/Box/SNAP/AEA_PP/disclosure/processed/', st, out, '.dta',sep='')
+data_co_or_gi <- read.dta(infile)
+
+co_or_rgi <- ggplot(data_co_or_gi, aes(x, y, height = h, group = group , fill=group)) + 
+  geom_ridgeline(scale=2500, alpha = 1) +
+  scale_fill_cyclical(values = c("lightblue", "#E6BBAD")) +
+  scale_x_continuous(expand = c(0, 0), name = 'Gross Income') +
+  scale_y_discrete(expand = c(0, 0)) +
+  coord_cartesian(clip = "off") + 
+  theme_ridges(grid = FALSE, center_axis_labels = TRUE) +
+  theme(axis.title.y=element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  annotate(geom="text", x=70, y=1.3, label="Oregon",
+           color="black", angle=0, hjust ='left',size=10) +
+  annotate(geom="text", x=70, y=0.3, label="Colorado",
+           color="black", angle=0, hjust ='left',size=10) +
+  ggtitle('Gross Income') +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=25), 
+        plot.title = element_text(size = 40, face = "bold")
+  )
+```
+.pull-left[
+```{r , include = T, echo=F}
+co_or_rgi 
 ```
 ]
-<span style="display:block; margin-top:-20px;"></span> 
-- **First look:** not the case for TANF recipients in Oregon
-- Categorically eligible cases don't exhibit this mass
+.pull-right[
+```{r , include = T, echo=F}
+co_or_rni
+```
+]
+
+- .red[**Colorado:**] Relatively smooth gross income
+
+- .red[**Both:**] No noticeable bunching at NI=0
+
 
 ---
 # Net Income by Size of Case
@@ -713,10 +769,10 @@ Let's explore the .hi-green[single-unit bunchers in CO], by .hi-green[self emplo
 
 
 ---
-# CO NI by Self Employment Income 
+# CO Net Income by Self Employment 
 
 
-- Self Employed exhibit most bunching behavior in other contexts `r Citep(bib, "Saez2010","Chetty2011")`
+- Self employed exhibit most bunching behavior in other contexts `r NoCite(bib, "Saez2010","Chetty2011")`(.red[Saez, 2010; Chetty, Friedman, et al., 2011])
 
 - Colorado provides data on self employment income
 
@@ -777,7 +833,7 @@ co_selfemp1
 ```
 ]
 ---
-# Colorado NI for Case Size = 1
+# Colorado Net Income for Case Size = 1
 .pull-left[
 ```{r , include = T, echo=F}
 st <- 'co'
@@ -820,9 +876,11 @@ co_case1_selfemp
 
 --
 
-- Next, we explore possible bunching heterogeneity by .hi[shelter deduction]
+
+<font size=6>Next, we explore possible bunching heterogeneity by</font> .red[**<font size=6>shelter deduction</font>**]
+
 ---
-# NI by Shelter Deduction
+# Net Income by Shelter Deduction
 ```{r , include = T, echo=F}
 #Shelter deduction
 st <- 'co'
@@ -883,8 +941,8 @@ co_shelt_plot
 or_shelt_plot
 ```
 ]
-
-- No substantial heterogeneity (.pink[aside from OR low earners])
+<br>
+<font size=6> No substantial heterogeneity (</font>.red[<font size=6>aside from Oregon low earners</font>]<font size=6>)</font>
 
 ---
 #Conclusion
@@ -895,11 +953,9 @@ or_shelt_plot
 
 - Discussed why there could be possible heterogeneity: .hi-pink[case size], .hi-green[self employed], .brown[**shelter deduction**]
 
-- Only evidence of bunching for self-employed single-unit cases
+- Only evidence of bunching for self-employed single-unit cases, but **economically small effects**
   
-  - **Economically small effects**
-  
-## .hi[Punchline] 
+## .red[**Main Take Away**] 
 Labor distortions from SNAP benefit kink .red[not a first-order concern]
   
 ---
@@ -907,12 +963,10 @@ Labor distortions from SNAP benefit kink .red[not a first-order concern]
 
 - Leverage people's experience with SNAP. Do people with experience do more bunching?
 
-- Explore impact of work requirements (e.g., ABAWD<sup>.green[**+**]</sup> time limits)
+- Explore impact of work requirements (e.g., ABAWD time limits)
 
 - Explore impact of notches from net/gross income tests, particularly for shelter deduction cases
 
-
-.footnote[.green[**+**] .hi[ABAWD] = .hi[A]ble-.hi[B]odied .hi[A]dult .hi[W]ithout .hi[D]ependents]
 
 ---
 class: white-slide, center, middle
@@ -1011,6 +1065,22 @@ PrintBibliography(bib, start = 23, end = 25)
 <!--     vline = 0) -->
 <!--     ) -->
 <!-- ``` -->
+
+<!-- --- -->
+<!-- # Oregon NI by TANF Receipt -->
+
+<!-- <font size=6>Is this bunching induced by other programs?</font> -->
+
+<!-- -- -->
+
+<!-- .center[ -->
+<!-- ```{r out.width = '70%', echo = F} -->
+<!-- knitr::include_graphics("or_rgi_bytanf.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- <span style="display:block; margin-top:-20px;"></span>  -->
+<!-- - **First look:** not the case for TANF recipients in Oregon -->
+<!-- - Categorically eligible cases don't exhibit this mass -->
 
 
 <!-- <span style="display:block; margin-top:-60px;"></span>  -->
